@@ -27,7 +27,7 @@ We provide the following shell codes for LeTs running.
 
 ### Stage1: Training Aux-Net to obtain learngene
 
-In stage 1, we train Aux-S/B to obtain learngene.
+In stage 1, we train Aux-Net to obtain learngene.
 
 ```bash
 python3 -u -m torch.distributed.launch --nproc_per_node=4 --master_port 20001 --use_env main.py --src-arch deit_small_patch16_224_L8 --tgt-arch deit_base_patch16_224_L16_H12 --batch-size 128 --epochs 300 --warmup-epochs 5 --data-path path-to-ImageNet-1K --output_dir path-to-output --weight-decay 0.05 --lr 5e-4 --teacher-model levit_384 --teacher-path path-to-teacher --distillation-type soft --distillation-alpha 1.0
